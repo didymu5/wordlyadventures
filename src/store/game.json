@@ -1,0 +1,115 @@
+{
+  "gameGrid": [
+    [
+      {
+        "val": "c",
+        "id": "iUd9W8u5zL1XgwMCe7BEKf",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "val": "w",
+        "id": "tLKrdY73pp9XcFVXbqumyV",
+        "x": 0,
+        "y": 1
+      },
+      {
+        "val": "j",
+        "id": "qiCGR1m3CBghSowvxriufK",
+        "x": 0,
+        "y": 2
+      },
+      {
+        "val": "h",
+        "id": "hrSeVLekYQc1jyf1eEsedd",
+        "x": 0,
+        "y": 3
+      }
+    ],
+    [
+      {
+        "val": "a",
+        "id": "7UivSWjnj8xVXfXjCKQK1V",
+        "x": 1,
+        "y": 0
+      },
+      {
+        "val": "o",
+        "id": "m26Ci1EFu87mpowRLYUb8u",
+        "x": 1,
+        "y": 1
+      },
+      {
+        "val": "o",
+        "id": "ogtMaC5fcTRMZqPRcs2QDR",
+        "x": 1,
+        "y": 2
+      },
+      {
+        "val": "a",
+        "id": "ompoRH2M28ZngKfMdQgLKn",
+        "x": 1,
+        "y": 3
+      }
+    ],
+    [
+      {
+        "val": "t",
+        "id": "x8ZsS5ahukQ6Ey4h44HHKU",
+        "x": 2,
+        "y": 0
+      },
+      {
+        "val": "r",
+        "id": "6y4buXP4KW6hmj79BZbDkJ",
+        "x": 2,
+        "y": 1
+      },
+      {
+        "val": "b",
+        "id": "nusVniNCXarfrnQKkbN4cS",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "val": "m",
+        "id": "rG9KFvn7FKTj9Htx3xV6Ri",
+        "x": 2,
+        "y": 3
+      }
+    ],
+    [
+      {
+        "val": "t",
+        "id": "jjbSwPdFYxzQeAjk2bafvS",
+        "x": 3,
+        "y": 0
+      },
+      {
+        "val": "k",
+        "id": "tMrQPKYDwD6g7MnA2ALPE1",
+        "x": 3,
+        "y": 1
+      },
+      {
+        "val": "e",
+        "id": "7xmJkpqkcEgwZYENvVVF5K",
+        "x": 3,
+        "y": 2
+      },
+      {
+        "val": "q",
+        "id": "73Jo6mu2SnDtxdzPzWHY9C",
+        "x": 3,
+        "y": 3
+      }
+    ]
+  ],
+  "words": [
+    "cat",
+    "work",
+    "job",
+    "ham",
+    "lab"
+  ]
+}

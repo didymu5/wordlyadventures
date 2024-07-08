@@ -13,8 +13,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        "responsive-sm": "calc(6rem + 1vw)", // Example for small screen
+        "responsive-md": "calc(8.5rem + 1vw)", // Example for medium screen
+        "responsive-lg": "calc(8rem + 2vw)", // Example for large screen
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };
 export default config;
