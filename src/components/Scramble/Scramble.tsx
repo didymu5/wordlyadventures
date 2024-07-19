@@ -55,11 +55,11 @@ function Scramble({
         Hint: {hint}
       </div>
       <DndContext onDragEnd={handleDragEnd} id="dnd_describe">
-        <div className="flex gap-4 uppercase font-bold text-5xl border-2 border-slate-200">
+	<AnswerZone answer={answer} letterID={letterID} />
+	<div className="flex gap-4 uppercase font-bold text-5xl border-2 border-slate-200 mb-12">
           <WordMix letters={letters} letterID={letterID} />
         </div>
 
-        <AnswerZone answer={answer} letterID={letterID} />
         {isSolved === false && (
           <>
             <p className="text-red-600 text-lg mb-5">Not quite! try again!</p>{" "}
