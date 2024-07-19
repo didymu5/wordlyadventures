@@ -1,4 +1,5 @@
 // generates the static store for scramble game.
+// @ts-ignore
 const fs = require("fs");
 const SCRAMBLE = require("./SCRAMBLE.json");
 

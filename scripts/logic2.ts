@@ -111,7 +111,7 @@ function printGrid(grid: Grid): void {
     console.log(row.map((cell) => cell || ".").join(" "));
   }
 }
-
+// @ts-ignore
 const fs = require("fs");
 const short = require("short-uuid");
 
