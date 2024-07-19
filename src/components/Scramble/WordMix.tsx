@@ -12,12 +12,11 @@ function Letter({
   isUsed?: boolean;
   isDisabled?: boolean;
 }) {
-  const { attributes, listeners, setNodeRef, transform, over, active } =
-    useDraggable({
-      id: `draggable_${val + order}`,
-      data: { val: val, id: `draggable_${val + order}` },
-      disabled: isDisabled,
-    });
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: `draggable_${val + order}`,
+    data: { val: val, id: `draggable_${val + order}` },
+    disabled: isDisabled,
+  });
 
   const style = transform
     ? {
@@ -27,7 +26,7 @@ function Letter({
 
   return (
     <div
-      className={`select-none ${isDisabled && "text-slate-500"}`}
+      className={`select-none ${isDisabled && "text-slate-300 "}`}
       ref={setNodeRef}
       style={style}
       {...listeners}

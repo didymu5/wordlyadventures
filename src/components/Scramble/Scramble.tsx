@@ -63,7 +63,7 @@ function Scramble({
       </div>
       <DndContext onDragEnd={handleDragEnd} id="dnd_describe">
         <AnswerZone answer={answer} letterID={letterID} undo={undo} />
-        <div className="flex gap-4 uppercase font-bold text-fit-to-screen border-2 border-slate-200 mb-12">
+        <div className="flex flex-wrap gap-4 uppercase justify-center font-bold text-fit-to-screen border-2 px-5 md:px-1 border-slate-200 mb-12">
           <WordMix letters={letters} letterID={letterID} />
         </div>
 
