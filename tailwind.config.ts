@@ -14,12 +14,12 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontSize: {
-	"responsive-sm": "calc(2rem + 1vw)", // Example for small screen
+        "responsive-sm": "calc(2rem + 1vw)", // Example for small screen
         "responsive-md": "calc(8.5rem + 1vw)", // Example for medium screen
         "responsive-lg": "calc(8rem + 2vw)", // Example for large screen
       },
       animation: {
-	bounce: "bounce 1s ease-in-out",
+        bounce: "bounce 1s ease-in-out",
       },
     },
   },
