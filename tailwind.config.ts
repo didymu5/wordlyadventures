@@ -17,6 +17,8 @@ const config: Config = {
         "responsive-sm": "calc(2rem + 1vw)", // Example for small screen
         "responsive-md": "calc(8.5rem + 1vw)", // Example for medium screen
         "responsive-lg": "calc(8rem + 2vw)", // Example for large screen
+        "fit-to-screen": "calc(2rem + 1vw)",
+        "fit-to-screen-md": "calc(2.5rem + 1vw)",
       },
       animation: {
         bounce: "bounce 1s ease-in-out",

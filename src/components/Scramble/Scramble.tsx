@@ -44,6 +44,13 @@ function Scramble({
     setLetterID([]);
     setIsSolved(null);
   }
+  function undo() {
+    setLetterID((prev) => {
+      prev.pop();
+      return [...prev];
+    });
+    setAnswer((prev) => prev.slice(0, -1));
+  }
   useEffect(() => {
     if (answer.length === count) {
       setIsSolved(isCorrect(answer, word));
@@ -55,8 +62,8 @@ function Scramble({
         Hint: {hint}
       </div>
       <DndContext onDragEnd={handleDragEnd} id="dnd_describe">
-	<AnswerZone answer={answer} letterID={letterID} />
-	<div className="flex gap-4 uppercase font-bold text-5xl border-2 border-slate-200 mb-12">
+        <AnswerZone answer={answer} letterID={letterID} undo={undo} />
+        <div className="flex gap-4 uppercase font-bold text-fit-to-screen border-2 border-slate-200 mb-12">
           <WordMix letters={letters} letterID={letterID} />
         </div>
 
