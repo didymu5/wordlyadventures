@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { WordMix } from "@/components/Scramble/WordMix";
 import { AnswerZone } from "@/components/Scramble/AnswerZone";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
@@ -44,13 +44,12 @@ function Scramble({
     setLetterID([]);
     setIsSolved(null);
   }
-  function undo() {
+  const undo = useCallback(() => {
     setLetterID((prev) => {
-      prev.pop();
-      return [...prev];
+      return prev.slice(0, -1);
     });
     setAnswer((prev) => prev.slice(0, -1));
-  }
+  }, []);
   useEffect(() => {
     if (answer.length === count) {
       setIsSolved(isCorrect(answer, word));
