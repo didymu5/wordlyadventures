@@ -29,7 +29,7 @@ function AnswerZone({
     <div
       ref={setNodeRef}
       style={style}
-      className={`flex flex-col align-middle leading-none text-fit-to-screen justify-center uppercase font-bold border-2 rounded-xl ${borderStyleToggle} min-h-20 my-16 w-full px-7 select-none`}
+      className={`flex flex-col align-middle leading-none text-fit-to-screen justify-center text-center uppercase font-bold border-2 rounded-xl ${borderStyleToggle} min-h-20 my-16 w-full px-2 md:px-7 select-none`}
       onClick={undoFn}
     >
       {answer}

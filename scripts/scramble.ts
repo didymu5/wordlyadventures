@@ -10,6 +10,7 @@ interface scramble {
 }
 
 const shuffle = (array: string[]) => {
+  //Fisher-yates
   const shuffled = array.slice();
   let currentIndex = shuffled.length;
   let temporaryValue, randomIndex;
@@ -24,7 +25,9 @@ const shuffle = (array: string[]) => {
 };
 
 function createScramble(scramble: scramble[]) {
-  console.log(scramble);
+  scramble.forEach((element) => {
+    element.scramble = shuffle(element.scramble.split("")).join("");
+  });
   fs.writeFile(
     "src/store/scramble/game.json",
     JSON.stringify(scramble, null, 2),

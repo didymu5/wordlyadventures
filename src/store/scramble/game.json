@@ -1,57 +1,37 @@
 [
   {
-    "word": "ecosystem",
-    "scramble": "sycotseem",
-    "hint": "A biological community of interacting organisms and their physical environment"
-  },
-  {
-    "word": "metamorphosis",
-    "scramble": "motrmpoaihess",
-    "hint": "A process of transformation from an immature form to an adult form in two or more distinct stages"
-  },
-  {
-    "word": "constitution",
-    "scramble": "onttosuicnti",
-    "hint": "A set of fundamental principles or established precedents according to which a state is governed"
-  },
-  {
-    "word": "photosynthesis",
-    "scramble": "oytoshtehpsnis",
-    "hint": "The process by which green plants and some other organisms use sunlight to synthesize foods"
-  },
-  {
-    "word": "revolution",
-    "scramble": "vluoitonre",
-    "hint": "A forcible overthrow of a government or social order, in favor of a new system"
-  },
-  {
-    "word": "mitochondria",
-    "scramble": "ochonditmria",
-    "hint": "The powerhouse of the cell"
-  },
-  {
     "word": "gravity",
-    "scramble": "vtyriga",
-    "hint": "The force that attracts a body toward the center of the earth"
+    "scramble": "rgvtiya",
+    "hint": "The force that pulls objects toward the Earth."
+  },
+  {
+    "word": "planet",
+    "scramble": "alepnt",
+    "hint": "A large body in space that orbits a star, like Earth or Mars."
   },
   {
     "word": "photosynthesis",
-    "scramble": "ohotynssiteph",
-    "hint": "The process by which green plants use sunlight to synthesize foods"
+    "scramble": "tisehponsthyso",
+    "hint": "The process by which plants make their own food using sunlight."
   },
   {
-    "word": "platelet",
-    "scramble": "teltpael",
-    "hint": "A small blood cell that helps with clotting"
+    "word": "evaporation",
+    "scramble": "ntroviaeoap",
+    "hint": "The process of liquid water turning into vapor."
   },
   {
-    "word": "democracy",
-    "scramble": "ydcraomec",
-    "hint": "A system of government by the whole population or all the eligible members of a state"
+    "word": "habitat",
+    "scramble": "iathtab",
+    "hint": "The natural environment where a plant or animal lives."
   },
   {
-    "word": "volcano",
-    "scramble": "ocanlov",
-    "hint": "A mountain or hill with a crater through which lava erupts"
+    "word": "electricity",
+    "scramble": "eiteycctlir",
+    "hint": "A form of energy that powers lights and appliances."
+  },
+  {
+    "word": "molecule",
+    "scramble": "eumlleoc",
+    "hint": "The smallest unit of a chemical compound that can take part in a chemical reaction."
   }
 ]
