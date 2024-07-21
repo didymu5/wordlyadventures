@@ -4,6 +4,7 @@ import { WordMix } from "@/components/Scramble/WordMix";
 import { AnswerZone } from "@/components/Scramble/AnswerZone";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
 import { Retry } from "@/components/Scramble/Retry";
+import Confetti from "react-confetti";
 
 import { useRouter } from "next/navigation";
 
@@ -57,11 +58,17 @@ function Scramble({
   }, [answer, count, word]);
   return (
     <>
+      {isSolved && <Confetti recycle={false} gravity={0.6} />}
       <div className="lg:text-xl text-md text-slate-700 2xl:p-12 xl:p-9 lg:p-7 p-5 w-full items-center text-center">
         Hint: {hint}
       </div>
       <DndContext onDragEnd={handleDragEnd} id="dnd_describe">
         <AnswerZone answer={answer} letterID={letterID} undo={undo} />
+        {isSolved && (
+          <p className="mb-10 text-center font-extrabold text-green-800 text-xl">
+            Correct!
+          </p>
+        )}
         <div className="flex flex-wrap gap-4 uppercase justify-center font-bold text-fit-to-screen border-2 px-5 md:px-1 border-slate-200 mb-12">
           <WordMix letters={letters} letterID={letterID} />
         </div>
@@ -76,9 +83,6 @@ function Scramble({
         )}
         {isSolved === true && (
           <div>
-            <p className="mb-10 text-center font-extrabold text-blue-800 text-xl">
-              Correct!
-            </p>
             {!isLastScramble && (
               <button
                 onClick={() => router.push(`/scramble/${scramId + 1}`)}
