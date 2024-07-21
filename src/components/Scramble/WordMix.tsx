@@ -26,11 +26,12 @@ function Letter({
 
   return (
     <div
-      className={`select-none ${isDisabled && "text-slate-300 "}`}
+      className={`select-none ${isDisabled && "text-slate-300 "} touch-none`}
       ref={setNodeRef}
       style={style}
       {...listeners}
       {...attributes}
+      role="button"
     >
       {val}
     </div>
