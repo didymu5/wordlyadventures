@@ -1,13 +1,26 @@
 // generates the static store for scramble game.
 // @ts-ignore
 const fs = require("fs");
-const SCRAMBLE = require("./SCRAMBLE.json");
+// const SCRAMBLE = require("./scrambles/summer_pool.json");
 
 interface scramble {
   word: string;
   hint: string;
   scramble: string;
 }
+let SCRAMBLE = null;
+const getFile = () => {
+  let result = null;
+  try {
+    if (process.argv[2]) {
+      result = fs.readFileSync(process.argv[2], "utf8");
+      return JSON.parse(result);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+SCRAMBLE = getFile();
 
 const shuffle = (array: string[]) => {
   //Fisher-yates
