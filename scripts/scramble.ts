@@ -15,13 +15,15 @@ const getFile = () => {
     if (process.argv[2]) {
       result = fs.readFileSync(process.argv[2], "utf8");
       return JSON.parse(result);
+    } else {
+      console.log("no file provided");
+      return null;
     }
   } catch (error) {
     console.error(error);
   }
 };
 SCRAMBLE = getFile();
-
 const shuffle = (array: string[]) => {
   //Fisher-yates
   const shuffled = array.slice();
@@ -38,8 +40,12 @@ const shuffle = (array: string[]) => {
 };
 
 function createScramble(scramble: scramble[]) {
+  if (!scramble) {
+    console.log("no valid scramble list.");
+    return null;
+  }
   scramble.forEach((element) => {
-    element.scramble = shuffle(element.scramble.split("")).join("");
+    element.scramble = shuffle(element.word.split("")).join("");
   });
   fs.writeFile(
     "src/store/scramble/game.json",
