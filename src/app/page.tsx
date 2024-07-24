@@ -1,4 +1,3 @@
-import { Game } from "@/components/Game/Game";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
