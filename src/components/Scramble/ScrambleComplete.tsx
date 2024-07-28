@@ -10,7 +10,7 @@ const pm = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 const ScrambleComplete = ({ scramble }: Props) => {
   return (
     <div
-      className={`flex flex-col justify-center gap-5 text-center ${pm.className} bg-camp-scene bg-cover bg-center h-screen w-full`}
+      className={`flex flex-col justify-center gap-5 text-center ${pm.className} bg-beach-scene bg-cover bg-center h-screen w-full`}
     >
       <h3 className="text-5xl">Words of the day!!!</h3>
       {scramble.map((item, index) => {

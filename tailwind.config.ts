@@ -13,6 +13,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "camp-scene": "url('/camp.svg')",
+	"beach-scene": "url('/beach.svg')",
       },
       fontSize: {
         "responsive-sm": "calc(2rem + 1vw)", // Example for small screen
