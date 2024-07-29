@@ -12,8 +12,9 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "camp-scene": "url('/camp.svg')",
-	"beach-scene": "url('/beach.svg')",
+        "camp-scene": "url('/basketball_bg')",
+        "beach-scene": "url('/beach.svg')",
+        "basketball-scene": "url('/basketball_bg.jpeg')",
       },
       fontSize: {
         "responsive-sm": "calc(2rem + 1vw)", // Example for small screen
