@@ -2,7 +2,7 @@
 // @ts-ignore
 const fs = require("fs");
 // const SCRAMBLE = require("./scrambles/summer_pool.json");
-
+const path = require("path");
 interface scramble {
   word: string;
   hint: string;
@@ -23,7 +23,20 @@ const getFile = () => {
     console.error(error);
   }
 };
-SCRAMBLE = getFile();
+// SCRAMBLE = getFile();
+
+const SCRAMBLE_FILE_LIST = path.resolve(__dirname, "scrambles");
+const getScrambleList = () => {
+  if (fs.existsSync(SCRAMBLE_FILE_LIST)) {
+    console.info("getting list of scrambles...");
+    fs.readdir(SCRAMBLE_FILE_LIST, (err: any, files: any) => {
+      // get list of scrambles and generate the games based on the file.
+      return files;
+    });
+  }
+  return;
+};
+console.log(getScrambleList());
 const shuffle = (array: string[]) => {
   //Fisher-yates
   const shuffled = array.slice();
@@ -60,4 +73,4 @@ function createScramble(scramble: scramble[]) {
   );
   return scramble;
 }
-createScramble(SCRAMBLE);
+// createScramble(SCRAMBLE);

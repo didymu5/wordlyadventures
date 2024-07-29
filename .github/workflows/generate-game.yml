@@ -1,0 +1,25 @@
+name: Generate game at mid-night
+
+on:
+  schedule:
+    # Run at 08:00 UTC every day (midnight PST)
+    - cron: "0 8 * * *"
+
+jobs:
+  run-npm-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run NPM script
+        run: npm run lint
