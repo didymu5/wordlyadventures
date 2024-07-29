@@ -1,9 +1,11 @@
 name: Generate game at mid-night
 
+# on:
+#   schedule:
+#     # Run at 08:00 UTC every day (midnight PST)
+#     - cron: "0 8 * * *"
 on:
-  schedule:
-    # Run at 08:00 UTC every day (midnight PST)
-    - cron: "0 8 * * *"
+  push:
 
 jobs:
   run-npm-script:
