@@ -1,27 +1,68 @@
-name: Generate game at mid-night
+name: Auto-Rebase New Game Features
 
-# on:
-#   schedule:
-#     # Run at 08:00 UTC every day (midnight PST)
-#     - cron: "0 8 * * *"
 on:
   push:
+    branches:
+      - game
+  # schedule:
+  #   - cron: "0 8 * * *" # Runs at midnight PST (08:00 UTC)
 
 jobs:
-  run-npm-script:
+  check_and_rebase:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: "14"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Check for new game features
+        id: check_commits
+        run: |
+          git fetch origin game
+          game_commits=$(git log origin/game --pretty=format:"%H %s" --grep="feat(game): new")
+          main_commits=$(git log origin/main --pretty=format:"%H %s")
 
-      - name: Run NPM script
-        run: npm run lint
+          if [[ -n "$game_commits" ]]; then
+            for commit in $game_commits; do
+              hash=$(echo $commit | awk '{print $1}')
+              message=$(echo $commit | cut -d' ' -f2-)
+              if ! echo "$main_commits" | grep -q "$hash"; then
+                echo "Creating PR for commit $hash: $message"
+                echo "::set-output name=commit_hash::$hash"
+                echo "::set-output name=commit_message::$message"
+                break
+              fi
+            done
+          else
+            echo "No new game feature commits found."
+            echo "::set-output name=commit_hash::"
+            echo "::set-output name=commit_message::"
+          fi
+
+      - name: Create PR
+        if: steps.check_commits.outputs.commit_hash != ''
+        id: create_pr
+        run: |
+          git checkout -b temp-branch
+          git cherry-pick ${{ steps.check_commits.outputs.commit_hash }}
+          git push origin temp-branch
+
+          pr_url=$(gh pr create --title "${{ steps.check_commits.outputs.commit_message }}" --body "Auto PR for ${{ steps.check_commits.outputs.commit_hash }}" --head temp-branch --base main)
+          echo "::set-output name=pr_url::$pr_url"
+
+      - name: Rebase PR
+        if: steps.create_pr.outputs.pr_url != ''
+        run: |
+          gh pr merge ${{ steps.create_pr.outputs.pr_url }} --rebase --auto --delete-branch
+
+      - name: Clean up
+        if: steps.create_pr.outputs.pr_url != ''
+        run: |
+          git push origin --delete temp-branch
