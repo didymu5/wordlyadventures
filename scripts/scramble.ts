@@ -26,17 +26,42 @@ const getFile = () => {
 // SCRAMBLE = getFile();
 
 const SCRAMBLE_FILE_LIST = path.resolve(__dirname, "scrambles");
-const getScrambleList = () => {
-  if (fs.existsSync(SCRAMBLE_FILE_LIST)) {
-    console.info("getting list of scrambles...");
-    fs.readdir(SCRAMBLE_FILE_LIST, (err: any, files: any) => {
-      // get list of scrambles and generate the games based on the file.
-      return files;
-    });
+function getFilesInDirectory(directoryPath: string): string[] {
+  try {
+    const files = fs.readdirSync(directoryPath);
+    return files;
+  } catch (error) {
+    console.error("Error reading directory:", error);
+    return [];
   }
-  return;
-};
-console.log(getScrambleList());
+}
+// console.log(getFilesInDirectory(SCRAMBLE_FILE_LIST));
+function getScrambleWithLatestTimestamp(
+  files: string[]
+): scramble[] | undefined {
+  const timestampRegex = /(\d+)_/;
+
+  const sortedFiles = files.sort((a, b) => {
+    const timestampA = Number(path.basename(a).match(timestampRegex)?.[1] || 0);
+    const timestampB = Number(path.basename(b).match(timestampRegex)?.[1] || 0);
+    return timestampB - timestampA; // Descending order
+  });
+  const scrambleFilename = sortedFiles.length > 0 ? sortedFiles[0] : undefined;
+  try {
+    const scrambleFile = fs.readFileSync(
+      path.resolve(__dirname, "scrambles/" + scrambleFilename),
+      "utf-8"
+    );
+    return JSON.parse(scrambleFile);
+  } catch (error) {
+    console.error(error);
+  }
+  return [];
+}
+const scramleList = getScrambleWithLatestTimestamp(
+  getFilesInDirectory(SCRAMBLE_FILE_LIST)
+);
+
 const shuffle = (array: string[]) => {
   //Fisher-yates
   const shuffled = array.slice();
@@ -52,7 +77,7 @@ const shuffle = (array: string[]) => {
   return shuffled;
 };
 
-function createScramble(scramble: scramble[]) {
+function createScramble(scramble: scramble[] | undefined) {
   if (!scramble) {
     console.log("no valid scramble list.");
     return null;
@@ -73,4 +98,4 @@ function createScramble(scramble: scramble[]) {
   );
   return scramble;
 }
-// createScramble(SCRAMBLE);
+createScramble(scramleList);
