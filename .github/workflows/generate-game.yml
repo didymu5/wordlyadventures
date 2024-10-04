@@ -1,9 +1,9 @@
 name: Scheduled generate new Scramble
 
 on:
-  schedule:
-    # Run at 08:00 UTC every day (midnight PST)
-    - cron: "0 8 * * *"
+  push:
+    branches:
+      - main
 
 jobs:
   run-and-commit:
@@ -19,23 +19,23 @@ jobs:
           node-version: "16"
 
       - name: Install dependencies
-        run: npm install
+        run: echo 'dont install'
 
-      - name: Run NPM script
-        run: npm run gen:scramble
+      # - name: Run NPM script
+      #   run: npm run gen:scramble
 
-      - name: Configure Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      # - name: Configure Git
+      #   run: |
+      #     git config --global user.name 'github-actions[bot]'
+      #     git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Check for changes
-        run: |
-          git add src/store/scramble
-          if git diff-index --quiet HEAD; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update src/store/scramble"
-            git pull --rebase origin main
-            git push origin main
-          fi
+      # - name: Check for changes
+      #   run: |
+      #     git add src/store/scramble
+      #     if git diff-index --quiet HEAD; then
+      #       echo "No changes to commit"
+      #     else
+      #       git commit -m "Update src/store/scramble"
+      #       git pull --rebase origin main
+      #       git push origin main
+      #     fi
